@@ -1,0 +1,109 @@
+include html.snip
+
+snippet table2
+abbr 2x2 table
+    ${1} | ${2} 
+    ---  | ---  
+    ${3} | ${4} 
+
+snippet table3
+abbr 3x3 table
+    ${1} | ${2} | ${3}
+    ---  | ---  | --- 
+    ${4} | ${5} | ${6}
+
+snippet table4
+abbr 4x4 table
+    ${1} | ${2} | ${3} | ${4}
+    ---  | ---  | ---  | --- 
+    ${5} | ${6} | ${7} | ${8}
+
+snippet table5
+abbr 5x5 table
+    ${1} | ${2} | ${3} | ${4} | ${5}
+    ---  | ---  | ---  | ---  | --- 
+    ${5} | ${6} | ${7} | ${8} | ${9}
+
+snippet italy
+abbr _italy_
+options word
+    _${1}_
+
+snippet bold
+abbr **bold**
+options word
+    **${1}**
+
+snippet code
+abbr `code`
+options word
+    \`${1}\`${2}
+
+snippet codeblock
+abbr code block
+options head
+    \`\`\`${1}
+    ${2}
+    \`\`\`
+
+snippet codeblock_C
+abbr C code block
+options head
+    \`\`\`C
+    ${1}
+    \`\`\`
+
+snippet codeblock_Python
+abbr Python code block
+options head
+    \`\`\`Python
+    ${1}
+    \`\`\`
+
+snippet codeblock_bash
+abbr Bash code block
+options head
+    \`\`\`bash
+    ${1}
+    \`\`\`
+
+snippet codeblock_zsh
+abbr Zsh code block
+options head
+    \`\`\`zsh
+    ${1}
+    \`\`\`
+
+snippet linkimage
+    ![${1:display text}](${1:image path})
+
+snippet linkurl
+options word
+    [${1:display text}](${2:url})
+
+snippet linkemail
+options word
+    [${1:display text}](mailto:${2:email})
+
+snippet tagAlignCenter
+	<center>${0}</center> 
+
+snippet tagParagraph
+    <p/>
+
+snippet tagEmptyLine
+	<br>
+
+snippet tagPageBreak
+	<p style="page-break-after:always;"></p>
+
+snippet handbook_template
+	<p style="page-break-after:always;"></p>
+	
+	# ${1}
+	---
+	**Last Update:** ${2}  
+	**Applicable Product:** ${3}  
+	**Description:**  
+	
+	${0}

@@ -1,0 +1,112 @@
+snippet CFLAGS
+options head
+	CFLAGS=-Wall -g ${0: -llua -lzeromq}
+
+snippet clean:
+options head
+	clean:
+		rm -f ${0}
+
+snippet makefile_template_universal:
+	#####################################################
+	#            Global Variable Definitions            #
+	#####################################################
+	CC=gcc
+	OUTPUT=a
+	DEL=rm
+	VPATH=
+
+	#####################################################
+	#          Source and Object File List              #
+	#####################################################
+	SOURCES=test.c
+
+	OBJECTS=$(SOURCES:.c=.o)
+
+	#####################################################
+	#          Common Compiler Flags                    #
+	#####################################################
+	FLAGS=-Wall -c
+
+	#####################################################
+	#          Extra C Pre-Processor Flags              #
+	#####################################################
+	CPPFLAGS+=
+
+	#####################################################
+	#          Extra C Compiler Flags                   #
+	#####################################################
+	CFLAGS+=
+
+	#####################################################
+	#          Extra C++ Compiler Flags                 #
+	#####################################################
+	CXXFLAGS+=
+
+	#####################################################
+	#          Linking Options                          #
+	#####################################################
+
+	#####################################################
+	#          Targets Definitions                      #
+	#####################################################
+	OUTPUT=runme
+
+	$(OUTPUT):$(OBJECTS)
+		$(CC) $^ $(LD_LIBRARIES) -o $@
+		./$(OUTPUT)
+
+	.c.o:
+		$(CC) $(FLAGS) $(CPPFLAGS) $(CFLAGS) $< -o $@
+
+	.PHONY:clean
+	clean:
+		$(DEL) *.o $(OUTPUT)
+
+snippet makefile_template_ut
+	################################################################################
+	# * $Id$
+	# *
+	# * Copyright 2016 Nokia Solutions and Networks.  All rights reserved.
+	################################################################################
+
+	ifeq ($(USER_ROOT),)
+	PROJ_ROOT = ../..
+	else
+	PROJ_ROOT = $(USER_ROOT)
+	endif
+
+	################################################################################
+	include $(PROJ_ROOT)/../UnitTest/make/cpputestHeader.mak
+	################################################################################
+
+	TESTUNIT = ut${1:#:SrcFileUnderTest}
+	BASE_FOLDER = $(PROJ_ROOT)/Services/${2:#:ComponentUnderTest}
+	
+    # Optional define, used to test static and inline functions.
+	UT_DEFINES += -D$1_UNIT_TEST
+
+	# Include directories for this test. E.g tested code
+	UT_INCLUDE_DIR += $(PROJ_ROOT)/Services/$2
+
+	# Source file directories for this test and unit under test
+	CPP_SRCDIR += $(PROJ_ROOT)/Services/$2/ut
+
+	C_SRCDIR += $(PROJ_ROOT)/Services/$2/src
+
+	# Source files for this test and unit under test (UUT)
+	CPP_SOURCE := UT_$1.cpp
+	CPP_SOURCE +=
+
+	C_SOURCE :=
+	C_SOURCE +=
+
+	CPP_UUT_SOURCE :=
+	CPP_UUT_SOURCE +=
+
+	C_UUT_SOURCE += $1.c
+
+	##############################################################################
+	include $(PROJ_ROOT)/../UnitTest/make/cpputestTrailer.mak
+	##############################################################################
+

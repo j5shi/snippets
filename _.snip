@@ -1,0 +1,232 @@
+snippet header_Nokia
+	"""
+	File: `expand('%:t')`
+	Author: Shi, Jia (Nokia - CN/Hangzhou)
+	Last Modified: `strftime("%c")`
+	Description: ${1}
+	
+	Copyright (c) `strftime("%Y")` Nokia Solutions and Networks. All Rights Reserved.
+	"""
+
+snippet header
+	'''******************************************************************
+	File: `expand('%:t')`
+	Author: Jia Shi <j5shi at live dot com>
+	Last Modified: `strftime("%c")`
+	Description: ${1}
+	
+	Copyright (c) `strftime("%Y")` Jia Shi. All Rights Reserved.
+	*******************************************************************'''
+
+snippet analysis_template
+	[Findings]
+	${1}
+
+	[Conclusion]
+	${2}
+
+	[Hypothesis]
+	${3}
+
+	[Next Step]
+	${4}
+    
+	[Author]
+	${5}
+
+snippet copyright_Nokia
+	Copyright (c) `strftime("%Y")` Nokia Solutions and Networks. All Rights Reserved.
+
+snippet copyright
+	Copyright (c) `strftime("%Y")` Jia Shi. All Rights Reserved.
+
+snippet name
+	Jia Shi
+
+snippet name_preinvestigation
+abbr    Preinvestigation signature
+	Jia Shi
+	DSPHWAPI
+
+snippet name_email
+abbr    Shi, Jia (Nokia - CN/Hangzhou) 
+	Shi, Jia (Nokia - CN/Hangzhou)
+
+snippet email_Live
+	j5shi@live.com
+
+snippet email_Gmail
+	j5shi.vip@gmail.com
+
+snippet email_Nokia
+	jia.shi@nokia.com
+
+snippet todo
+	TODO: 
+
+snippet dod
+	h1. UPHWAPI Definition of Done criterias
+	|| Reflected in DoD as || Details || UP HWAPI || Comments ||
+	| - Code available in main branch and inherited to required branches in the version control system
+	- Code has passed CI
+	- Code is compiled without errors and warnings
+	- Static Klocwork analysis done
+	1. No critical findings allowed
+	2. Static code analysis is part of CI 
+	- Runtime analysis done (Valgrind) | - Cross check that feature is implemented in all needed branches
+	- Quick tests and Release tests passed from CI
+	- Valgrind (Memcheck) is mandatory for SCs having host tests (unit tests or module tests).
+	1. No errors allowed.
+	2. Valgrind to be added to CI.
+	Note: Valgrind is tool set. Only Mem Check tool usage is mandatory if unit testing/module testing is done on Host | ${1} | |
+	| Interface changes approved in UP HWAPI IDT board |  | ${2}  | |
+	| New or new version of open source SW uploaded to TALKO tool for legal aspects check purposes | Inform Technical lead about this case | ${3} | |
+	| Code reviewed (includes that coding style guide has been followed) and findings corrected. Note: Also findings amount needs to be recorded
+	Coding guidelines obeyed | | ${4} | |
+	| New and modified code UT tested | Check code coverage status from CI
+	UT cases are:
+	-reviewed, -under version control, -executed and passed, -automated as part of CI. | ${5} | |
+	| New and modified code SCT tested | Check code coverage status from CI
+	SCT cases are:
+	-reviewed, -under version control, -executed and passed, -automated as part of CI
+	Review changes with customers if needed | ${6} | |
+	| Doxygen documentation updated | Updated Interface documentation if needed
+	Update Testcode documentation if needed | ${7} | |
+
+snippet dod_template
+	h1. UPHWAPI Definition of Done criterias
+	|| Reflected in DoD as || Details || UP HWAPI || Comments ||
+	| - Code available in main branch and inherited to required branches in the version control system
+	- Code has passed CI
+	- Code is compiled without errors and warnings
+	- Static Klocwork analysis done
+	1. No critical findings allowed
+	2. Static code analysis is part of CI 
+	- Runtime analysis done (Valgrind) | - Cross check that feature is implemented in all needed branches
+	- Quick tests and Release tests passed from CI
+	- Valgrind (Memcheck) is mandatory for SCs having host tests (unit tests or module tests).
+	1. No errors allowed.
+	2. Valgrind to be added to CI.
+	Note: Valgrind is tool set. Only Mem Check tool usage is mandatory if unit testing/module testing is done on Host | (x) (/) *N/A* | |
+	| Interface changes approved in UP HWAPI IDT board |  | (x) (/) *N/A*  | |
+	| New or new version of open source SW uploaded to TALKO tool for legal aspects check purposes | Inform Technical lead about this case | (x) (/) *N/A* | |
+	| Code reviewed (includes that coding style guide has been followed) and findings corrected. Note: Also findings amount needs to be recorded
+	Coding guidelines obeyed | | (x) (/) *N/A* | |
+	| New and modified code UT tested | Check code coverage status from CI
+	UT cases are:
+	-reviewed, -under version control, -executed and passed, -automated as part of CI. | (x) (/) *N/A* | |
+	| New and modified code SCT tested | Check code coverage status from CI
+	SCT cases are:
+	-reviewed, -under version control, -executed and passed, -automated as part of CI
+	Review changes with customers if needed | (x) (/) *N/A* | |
+	| Doxygen documentation updated | Updated Interface documentation if needed
+	Update Testcode documentation if needed | (x) (/) *N/A* | |
+
+snippet jiraticket
+abbr    jira
+	Subject: 
+	${1}
+
+	Description:
+	${2}
+
+	|| Action || Estimated time ||
+	| Gather information & initial design | 10h |
+	| *Total:* | ? |
+
+	Component/s: 
+	${3}
+
+	Fix Version/s: 
+	${4}
+
+	Assignee:  
+	${5}
+
+	Work effort: 
+	${6}
+
+snippet rdinfo
+abbr    R&D Information
+	[${1:Jia Shi}][`strftime("%d.%m.%Y")`][${2:Started | Not Started}][${3:RCF|RCNF}][LE: ${4:`strftime("%d.%m.%Y")`}]
+	[Escalation]: ${5:N/A}
+	[Status]: ${6:TARGET} 
+
+snippet na
+abbr    not_available
+	*N/A*
+
+snippet ndone
+	(x)
+
+snippet done
+	(/)
+
+snippet todo_memo
+	[ ] ${0:TARGET}
+
+snippet time_ascii
+options word
+	`strftime("%d %b %Y")`
+
+snippet time_full
+options word
+	`strftime("%Y-%m-%d %H:%M:%S")`
+
+snippet time_YMD
+options word
+	`strftime("%Y-%m-%d")`
+
+snippet time_HMS
+options word
+	`strftime("%H:%M:%S")`
+
+snippet filename
+options word
+	`bufname('%') =='[Command Line]' ? expand('%:t') : expand('%:t')`${0}
+
+snippet filename_upper_camel
+options word
+	`substitute(bufname('%') =='[Command Line]' ? expand('%:t') : expand('%:t'), '\%(^\(.\)\|_\(.\)\)', '\u\1\u\2', 'g')`${0}
+
+snippet filename_lower_camel
+options word
+	`substitute(bufname('%') =='[Command Line]' ? expand('%:t') : expand('%:t'), '\%(_\(.\)\)', '\u\1', 'g')`${0}
+
+snippet include_I_recursive
+options word
+	--I-recursive
+
+snippet include_isystem_recursive
+options word
+	--isystem-recursive
+
+snippet lorem
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+snippet {}
+	{
+		${0:TARGET}
+	}
+	
+snippet []
+	[
+		${0:TARGET}
+	]
+
+snippet ()
+	(
+		${0:TARGET}
+	)
+
+snippet <>
+	<
+		${0:TARGET}
+	>
+
+snippet nav
+	N/A
+
+snippet ok
+	(/)
+
