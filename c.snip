@@ -128,16 +128,16 @@ snippet enum
 	};
 
 snippet typedef_struct 
-	typedef struct
+	typedef struct ${1:#:name}
 	{
 		${0:TARGET:data}
-	} ${1:#:name};
+	} $1;
 
 snippet typedef_enum
-	typedef enum
+	typedef enum ${1:#:name}
 	{
 		${0:TARGET:data}
-	} ${1:#:name};
+	} $1;
 
 snippet main
 abbr    main() {}
