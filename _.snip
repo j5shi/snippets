@@ -22,28 +22,29 @@ snippet analysis_template
 	[Background]
 	${1}
 
-	[Findings]
+	[Log]
 	${2}
 
-	[Conclusion]
+	[Findings]
 	${3}
 
-	[Hypothesis]
+	[Conclusion]
 	${4}
 
-	[Next Step]
+	[Hypothesis]
 	${5}
+
+	[Next Step]
+	${6}
     
 	[Author]
-	${6}
+	${7}
 
 snippet     feature_template
-    - ${1:#:FEATURE NAME}
-    - Developer: ${2}
+    - Description:${1:#:FEATURE NAME}
+    - CNI ticket: ${2}
     - Epic ticket: ${3}
-    - Requirement: ${4}
-    - EE: ${5}h
-    - Breakdown: ${6}
+    - FB170x EE: ${4} h
 
 snippet copyright_Nokia
 	Copyright (c) `strftime("%Y")` Nokia Solutions and Networks. All Rights Reserved.
@@ -132,30 +133,6 @@ snippet dod_template
 	Review changes with customers if needed | (x) (/) *N/A* | |
 	| Doxygen documentation updated | Updated Interface documentation if needed
 	Update Testcode documentation if needed | (x) (/) *N/A* | |
-
-snippet jiraticket
-abbr    jira
-	Subject: 
-	${1}
-
-	Description:
-	${2}
-
-	|| Action || Estimated time ||
-	| Gather information & initial design | 10h |
-	| *Total:* | ? |
-
-	Component/s: 
-	${3}
-
-	Fix Version/s: 
-	${4}
-
-	Assignee:  
-	${5}
-
-	Work effort: 
-	${6}
 
 snippet rdinfo
 abbr    R&D Information
