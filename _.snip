@@ -25,20 +25,56 @@ snippet analysis_template
 	[Log]
 	${2}
 
-	[Findings]
+	[Symptom]
 	${3}
 
-	[Conclusion]
+	[Findings]
 	${4}
 
-	[Hypothesis]
+	[Conclusion]
 	${5}
 
-	[Next Step]
+	[Hypothesis]
 	${6}
+
+	[Next Step]
+	${7}
     
 	[Author]
-	${7}
+	${8}
+
+snippet ir
+    # Knife Request  
+
+    [1. Knife Basic Info] 
+	
+	* Knife type (correction/debug): ${1}
+	* Knife Directory: depends on build server, please refer to knife ready notification mail.
+	* Knife Baseload: ${2}
+	* Did the knife pass Dev possible testing?
+	- I couldn't get this silly question.
+	
+	[2. Knife Request Purpose] 
+	
+	* If this is a correction knife, what is code change in this knife (brief summary or explanation of correction)?
+	- ${3}.
+	
+	* If this is a debug knife, what is expected to get from debug knife (expected debug print) ?
+	- ${4}.
+	
+	[3. Special Request] 
+	
+	* Are there any special configuration/steps to run the knife? What are they if Yes: 
+	- No.
+	
+	* Are there expected repetition times of test scenario? What is it if Yes: 
+	- No.
+	
+	* Are there any special logs needed? What are they if Yes:
+	- Please provide syslogs/techlogs.
+	
+	* Are there any special log capture method request? What are they if Yes:
+	- No.
 
 snippet     feature_template
     - Description:${1:#:FEATURE NAME}
@@ -61,8 +97,8 @@ abbr    Preinvestigation signature
 	DSPHWAPI
 
 snippet name_email
-abbr    Shi, Jia (Nokia - CN/Hangzhou) 
-	Shi, Jia (Nokia - CN/Hangzhou)
+abbr    Shi, Jia (NSB - CN/Hangzhou) 
+	Shi, Jia (NSB - CN/Hangzhou)
 
 snippet email_Live
 	j5shi@live.com
@@ -71,7 +107,7 @@ snippet email_Gmail
 	j5shi.vip@gmail.com
 
 snippet email_Nokia
-	jia.shi@nokia.com
+	jia.shi@nokia-sbell.com
 
 snippet todo
 	TODO: 
@@ -217,4 +253,8 @@ snippet nav
 
 snippet ok
 	(/)
+
+snippet exp
+    |_ 
+
 
