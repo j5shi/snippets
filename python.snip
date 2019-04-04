@@ -122,3 +122,7 @@ snippet     pdb
 abbr        import pdb..
 	import pdb; pdb.set_trace()
 
+snippet     assert_instance
+	assert isinstance(${1:#:object}, ${2:#:class})
+
+
