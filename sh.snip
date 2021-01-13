@@ -4,9 +4,69 @@ snippet bash
 snippet env
 	#!/usr/bin/env ${1}
 
+snippet assign
+	${1:name}="${2:something}"
+
+snippet variable
+abbr    var
+	"$${1:name}"
+
+snippet testequal
+	[[ "$${1:name}" = "${2:something}" ]] ${3:then}
+
+snippet testequalnot
+	[[ "$${1:name}" != "${2:something}" ]] ${3:then}
+
+snippet testzerolength
+	[[ -z "$${1:name}" ]] ${2:then}
+
+snippet testnonzerolength
+	[[ -n "$${1:name}" ]] ${2:then}
+
+snippet test_eq
+	[[ "$${1:name}" -eq ${2:something} ]] ${3:then}
+
+snippet test_ne
+	[[ "$${1:name}" -ne ${2:something} ]] ${3:then}
+
+snippet test_gt
+	[[ "$${1:name}" -gt ${2:something} ]] ${3:then}
+
+snippet test_ge
+	[[ "$${1:name}" -ge ${2:something} ]] ${3:then}
+
+snippet test_lt
+	[[ "$${1:name}" -lt ${2:something} ]] ${3:then}
+
+snippet test_le
+	[[ "$${1:name}" -le ${2:something} ]] ${3:then}
+
+snippet testisdir
+	[[ -d "$${1:file}" ]] ${2:then}
+
+snippet testisfile
+	[[ -f "$${1:file}" ]] ${2:then}
+
+snippet testexist
+	[[ -e "$${1:file}" ]] ${2:then}
+
+snippet testisfileandreadable
+	[[ -r "$${1:file}" ]] ${2:then}
+
+snippet testisfileandwritable
+	[[ -w "$${1:file}" ]] ${2:then}
+
+snippet testisfileandexecutable
+	[[ -x "$${1:file}" ]] ${2:then}
+
 snippet if
 	if [ ${1:#:condition} ]; then
 		${0:TARGET}
+	fi
+
+snippet ifreg
+	if [[ $${1:string} =~ ${2:^regexp.*} ]]; then
+		${0}
 	fi
 
 snippet else
@@ -49,19 +109,6 @@ alias func
 	{
 		${0:TARGET}
 	}
-
-snippet match-regexp
-abbr    =~
-options head
-	if [[ $${1:string} =~ ${2:^regexp.*} ]]; then
-		${0}
-	fi
-
-snippet assign
-abbr    var
-abbr    var-assign
-options head
-	${1:name}="${2:something}"
 
 snippet case
 options head
