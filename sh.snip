@@ -7,6 +7,18 @@ snippet env
 snippet assign
 	${1:name}="${2:something}"
 
+snippet math
+abbr    var
+	"(( ${1:cmd} ))"
+
+snippet cmdreplacement
+abbr    var
+	"$(${1:cmd})"
+
+snippet subshell
+abbr    var
+	"(${1:cmd})"
+
 snippet variable
 abbr    var
 	"$${1:name}"
