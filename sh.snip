@@ -71,8 +71,11 @@ snippet testisfileandwritable
 snippet testisfileandexecutable
 	[[ -x "$${1:file}" ]] ${2:then}
 
+snippet ifelsefi
+	if [[ "$${0:var}" ${1:oprand} "${2:value}" ]]; then ${3:then}; else ${4:else}; fi
+
 snippet if
-	if [ ${1:#:condition} ]; then
+	if [[ ${1:#:condition} ]]; then
 		${0:TARGET}
 	fi
 
@@ -86,7 +89,7 @@ snippet else
 		${0:TARGET}
 
 snippet elif
-	elif [ ${1:#:condition} ]; then
+	elif [[ ${1:#:condition} ]]; then
 		${0:TARGET}
 
 snippet for
