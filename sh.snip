@@ -26,31 +26,31 @@ abbr    var
 snippet testequal
 	[[ "$${1:name}" = "${2:something}" ]] ${3:then}
 
-snippet testequalnot
+snippet testnotequal
 	[[ "$${1:name}" != "${2:something}" ]] ${3:then}
 
 snippet testzerolength
 	[[ -z "$${1:name}" ]] ${2:then}
 
-snippet testnonzerolength
+snippet testnotzerolength
 	[[ -n "$${1:name}" ]] ${2:then}
 
-snippet test_eq
+snippet testequalmath
 	[[ "$${1:name}" -eq ${2:something} ]] ${3:then}
 
-snippet test_ne
+snippet testnotequalmath
 	[[ "$${1:name}" -ne ${2:something} ]] ${3:then}
 
-snippet test_gt
+snippet testgreatthan
 	[[ "$${1:name}" -gt ${2:something} ]] ${3:then}
 
-snippet test_ge
+snippet testgreatorequal
 	[[ "$${1:name}" -ge ${2:something} ]] ${3:then}
 
-snippet test_lt
+snippet testlessthan
 	[[ "$${1:name}" -lt ${2:something} ]] ${3:then}
 
-snippet test_le
+snippet testlessorequal
 	[[ "$${1:name}" -le ${2:something} ]] ${3:then}
 
 snippet testisdir
@@ -79,7 +79,12 @@ snippet if
 		${0:TARGET}
 	fi
 
-snippet ifreg
+snippet ifnot
+	if ! [[ ${1:#:condition} ]]; then
+		${0:TARGET}
+	fi
+
+snippet ifregex
 	if [[ $${1:string} =~ ${2:^regexp.*} ]]; then
 		${0}
 	fi
