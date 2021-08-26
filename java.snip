@@ -1,56 +1,121 @@
+snippet char
+    char ${1:#:var} = '${2:#:value}';
+
+snippet str
+alias String
+	String ${1:#:var} = "${2:#:value}";
+
+snippet byte
+    byte ${1:#:var} = ${2:#:value};
+
+snippet short
+    short ${1:#:var} = ${2:#:value};
+
+snippet int
+    int ${1:#:var} = ${2:#:value};
+
+snippet long
+    long ${1:#:var} = ${2:#:value};
+
+snippet float
+    float ${1:#:var} = ${2:#:value};
+
+snippet double
+    double ${1:#:var} = ${2:#:value};
+
+snippet bool
+    boolean ${1:#:var} = ${2:#:value};
+
+snippet new
+    ${1:#:type} ${2:#:var} = new $1;
+
+snippet pr
+    private ${1:#:var}
+
+snippet pb
+    public ${1:#:var}
+
+snippet st
+    static ${1:#:var}
+
+snippet fi
+    final ${1:#:var}
+
+snippet va
+    void ${1:#:var}
+
+snippet spuf
+	static public final ${1:#:type} ${2:#:var} = ${3};
+
+snippet sprf
+	static private final ${1:#:type} ${2:#:var} = ${3};
+
+snippet print
+	System.out.print(${1:#:content});
+
+snippet println
+	System.out.println(${1:#:content});
+
+snippet if
+	if (${1:#:condition})
+    {
+	    ${2:#:statements}
+	}
+
+snippet elif
+	else if (${1:#:condition})
+    {
+	    ${2:#:statements}
+	}
+
+snippet else
+	else
+    {
+	    ${1:#:statements}
+	}
+
+snippet for
+	for (${1}; ${2}; ${3})
+    {
+	    ${4:TARGET}
+	}
+
+
 snippet class
-	class ${1} ${2:extends} ${3:#:Parent} ${4:implements} ${5:#:Interface} {
+	class ${1} ${2:extends} ${3:#:Parent} ${4:implements} ${5:#:Interface}
+    {
 	    ${0:TARGET}
 	}
 
 snippet interface
-	interface ${1} ${2:extends} ${3:#:Parent} {
+	interface ${1} ${2:extends} ${3:#:Parent}
+    {
 	    ${0:TARGET}
 	}
 
 snippet method
-	${1:void} ${2:#:method}(${3}) ${4:throws} {
+	${1:void} ${2:#:method}(${3}) ${4:throws}
+    {
 	    ${0:TARGET}
 	}
 
 snippet enum
 abbr enum {}
-	enum ${1:#:name} {
+	enum ${1:#:name}
+    {
 	    ${0:TARGET}
 	}
 
-snippet var
-	${1:#:type} ${2:#:var}${3};
 
-snippet const
-	static public final ${1:#:type} ${2:#:var} = ${3};${4}
-
-snippet const_string
-	static public final String ${1:var} = "${2}";${4}
 
 snippet assert
 	assert ${1:#:test} : ${2:#:Failure message};${3}
-
-snippet if
-	if (${1}) {
-	    ${2:TARGET}
-	}
-
-snippet elif
-alias elseif
-	else if (${1}) {
-	    ${2:TARGET}
-	}
 
 snippet while
 	while (${1}) {
 	    ${2:TARGET}
 	}
 
-snippet for
-	for (${1}; ${2}; ${3}) {
-	    ${4:TARGET}
-	}
 
 snippet foreach
 alias   fore
@@ -151,11 +216,6 @@ snippet main
 	    ${0}
 	}
 
-snippet println
-	System.out.println(${1});${0}
-
-snippet print
-	System.out.print(${1});${0}
 
 #javadoc
 snippet comment
