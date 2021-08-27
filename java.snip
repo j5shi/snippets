@@ -1,77 +1,82 @@
 snippet char
-    char ${1:#:var} = '${2:#:value}';
+    char ${1} = '${2:value}';
 
 snippet str
-alias String
-	String ${1:#:var} = "${2:#:value}";
+	String ${1} = "${2:value}";
 
 snippet byte
-    byte ${1:#:var} = ${2:#:value};
+    byte ${1} = ${2:value};
 
 snippet short
-    short ${1:#:var} = ${2:#:value};
+    short ${1} = ${2:value};
 
 snippet int
-    int ${1:#:var} = ${2:#:value};
+    int ${1} = ${2:value};
 
 snippet long
-    long ${1:#:var} = ${2:#:value};
+    long ${1} = ${2:value};
 
 snippet float
-    float ${1:#:var} = ${2:#:value};
+    float ${1} = ${2:value};
 
 snippet double
-    double ${1:#:var} = ${2:#:value};
+    double ${1} = ${2:value};
 
 snippet bool
-    boolean ${1:#:var} = ${2:#:value};
+    boolean ${1} = ${2:value};
 
 snippet new
-    ${1:#:type} ${2:#:var} = new $1;
+    ${1} ${2:var} = new $1;
 
 snippet pr
-    private ${1:#:var}
+    private ${1}
 
 snippet pb
-    public ${1:#:var}
+    public ${1}
 
 snippet st
-    static ${1:#:var}
+    static ${1}
 
 snippet fi
-    final ${1:#:var}
+    final ${1}
 
-snippet va
-    void ${1:#:var}
+snippet puf
+	public final ${1:type} ${2:var} = ${3};
 
 snippet spuf
-	static public final ${1:#:type} ${2:#:var} = ${3};
+	static public final ${1:type} ${2:var} = ${3};
+
+snippet prf
+	private final ${1:type} ${2:var} = ${3};
 
 snippet sprf
-	static private final ${1:#:type} ${2:#:var} = ${3};
+	static private final ${1:type} ${2:var} = ${3};
 
 snippet print
-	System.out.print(${1:#:content});
+	System.out.print(${1:content});
+
+snippet printf
+	System.out.printf(${1:content});
 
 snippet println
-	System.out.println(${1:#:content});
+	System.out.println(${1:content});
 
 snippet if
-	if (${1:#:condition})
+	if (${1:condition})
     {
-	    ${2:#:statements}
+	    ${2:statements}
 	}
 
 snippet elif
-	else if (${1:#:condition})
+	else if (${1:condition})
     {
-	    ${2:#:statements}
+	    ${2:statements}
 	}
 
 snippet else
 	else
     {
-	    ${1:#:statements}
+	    ${1:statements}
 	}
 
 snippet for
@@ -80,28 +85,48 @@ snippet for
 	    ${4:TARGET}
 	}
 
+snippet switch
+	switch (${1})
+    {
+        ${2:statements}
+	}
+
+snippet case
+	case ${1}:
+	    ${2:statements}
+		break;
+
+snippet default
+alias   de
+	default:
+	    ${0}
+		break;
+
+
+snippet br
+	break;
 
 snippet class
-	class ${1} ${2:extends} ${3:#:Parent} ${4:implements} ${5:#:Interface}
+	class ${1} ${2:extends} ${3:Parent} ${4:implements} ${5:Interface}
     {
 	    ${0:TARGET}
 	}
 
 snippet interface
-	interface ${1} ${2:extends} ${3:#:Parent}
+	interface ${1} ${2:extends} ${3:Parent}
     {
 	    ${0:TARGET}
 	}
 
 snippet method
-	${1:void} ${2:#:method}(${3}) ${4:throws}
+	${1:void} ${2:method}(${3}) ${4:throws}
     {
 	    ${0:TARGET}
 	}
 
 snippet enum
 abbr enum {}
-	enum ${1:#:name}
+	enum ${1:name}
     {
 	    ${0:TARGET}
 	}
@@ -109,7 +134,7 @@ abbr enum {}
 
 
 snippet assert
-	assert ${1:#:test} : ${2:#:Failure message};${3}
+	assert ${1:test} : ${2:Failure message};${3}
 
 snippet while
 	while (${1}) {
@@ -123,23 +148,8 @@ alias   fore
 	    ${3:TARGET}
 	}
 
-snippet switch
-	switch (${1}) {
-	    ${2:TARGET}
-	}
 
-snippet case
-	case ${1}:
-	    ${2:TARGET}
-	${0}
 
-snippet br
-	break;
-
-snippet default
-alias   de
-	default:
-	    ${0}
 
 snippet try
 	try {
@@ -149,7 +159,7 @@ snippet try
 	}
 
 snippet try_resources
-	try (${1:#:Resources}) {
+	try (${1:Resources}) {
 	    ${0:TARGET}
 	} catch (${2:Exception} ${3:e}) {
 	    ${4:e.printStackTrace();}
@@ -187,7 +197,7 @@ alias   tc
 	}
 
 snippet test
-	public void test${1:#:Name}() throws Exception {
+	public void test${1:Name}() throws Exception {
 	    ${0:TARGET}
 	}
 
@@ -230,7 +240,7 @@ snippet {code
 	{@code ${0}
 
 snippet deprecated
-	@deprecated ${0:#:description}
+	@deprecated ${0:description}
 
 snippet {docRoot
 	{@docRoot
@@ -239,44 +249,44 @@ snippet {inheritDoc
 	{@inheritDoc
 
 snippet {link
-	{@link ${1:#:target} ${0:#:label}
+	{@link ${1:target} ${0:label}
 
 snippet {linkplain
-	{@linkplain ${1:#:target} ${0:#:label}
+	{@linkplain ${1:target} ${0:label}
 
 snippet {literal
 	{@literal ${0}
 
 snippet param
-	@param ${1:#:var} ${0:#:description}
+	@param ${1:var} ${0:description}
 
 snippet return
-	@return ${0:#:description}
+	@return ${0:description}
 
 snippet see
-	@see ${0:#:reference}
+	@see ${0:reference}
 
 snippet serial
-	@serial ${0:#:description}
+	@serial ${0:description}
 
 snippet sd
-	@serialField ${0:#:description}
+	@serialField ${0:description}
 
 snippet sf
-	@serialField ${1:#:name} ${2:#:type} ${0:#:description}
+	@serialField ${1:name} ${2:type} ${0:description}
 
 snippet since
-	@since ${0:#:version}
+	@since ${0:version}
 
 snippet throws
-	@throws ${1:#:class} ${0:#:description}
+	@throws ${1:class} ${0:description}
 
 snippet {value
 	{@value ${0}
 
 snippet version
 alias ver
-	@version ${0:#:version}
+	@version ${0:version}
 
 snippet     helloworld
 options     head
