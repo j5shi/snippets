@@ -1,3 +1,27 @@
+snippet private
+    private ${1}
+
+snippet public
+    public ${1}
+
+snippet static
+    static ${1}
+
+snippet final
+    final ${1}
+
+snippet public.final
+	public final ${1:type} ${2:var} = ${3};
+
+snippet static.public.final
+	static public final ${1:type} ${2:var} = ${3};
+
+snippet private.final
+	private final ${1:type} ${2:var} = ${3};
+
+snippet static.private.final
+	static private final ${1:type} ${2:var} = ${3};
+
 snippet char
     char ${1} = '${2:value}';
 
@@ -27,30 +51,6 @@ snippet bool
 
 snippet new
     ${1} ${2:var} = new $1;
-
-snippet pr
-    private ${1}
-
-snippet pb
-    public ${1}
-
-snippet st
-    static ${1}
-
-snippet fi
-    final ${1}
-
-snippet puf
-	public final ${1:type} ${2:var} = ${3};
-
-snippet spuf
-	static public final ${1:type} ${2:var} = ${3};
-
-snippet prf
-	private final ${1:type} ${2:var} = ${3};
-
-snippet sprf
-	static private final ${1:type} ${2:var} = ${3};
 
 snippet print
 	System.out.print(${1:content});
@@ -82,7 +82,13 @@ snippet else
 snippet for
 	for (${1}; ${2}; ${3})
     {
-	    ${4:TARGET}
+	    ${4:statements}
+	}
+
+snippet foreach
+	for (${1} : ${2})
+    {
+	    ${3:statements}
 	}
 
 snippet switch
@@ -102,6 +108,17 @@ alias   de
 	    ${0}
 		break;
 
+snippet while
+	while (${1})
+	{
+	    ${2:statements}
+	}
+
+snippet do-while
+	do
+	{
+	    ${2:statements}
+	} while (${1});
 
 snippet br
 	break;
@@ -109,65 +126,54 @@ snippet br
 snippet class
 	class ${1} ${2:extends} ${3:Parent} ${4:implements} ${5:Interface}
     {
-	    ${0:TARGET}
+	    ${0:statements}
 	}
 
 snippet interface
 	interface ${1} ${2:extends} ${3:Parent}
     {
-	    ${0:TARGET}
+	    ${0:statements}
 	}
 
 snippet method
 	${1:void} ${2:method}(${3}) ${4:throws}
     {
-	    ${0:TARGET}
+	    ${0:statements}
 	}
 
 snippet enum
 abbr enum {}
 	enum ${1:name}
     {
-	    ${0:TARGET}
+	    ${0:statements}
 	}
-
 
 
 snippet assert
 	assert ${1:test} : ${2:Failure message};${3}
 
-snippet while
-	while (${1}) {
-	    ${2:TARGET}
-	}
 
-
-snippet foreach
-alias   fore
-	for (${1} : ${2}) {
-	    ${3:TARGET}
-	}
 
 
 
 
 snippet try
 	try {
-	    ${0:TARGET}
+	    ${0:statements}
 	} catch (${1:Exception} ${2:e}) {
 	    ${3:e.printStackTrace();}
 	}
 
 snippet try_resources
 	try (${1:Resources}) {
-	    ${0:TARGET}
+	    ${0:statements}
 	} catch (${2:Exception} ${3:e}) {
 	    ${4:e.printStackTrace();}
 	}
 
 snippet try_finally
 	try {
-	    ${0:TARGET}
+	    ${0:statements}
 	} catch (${1:Exception} ${2:e}) {
 	    ${3:e.printStackTrace();}
 	} finally {
@@ -181,7 +187,7 @@ snippet catch
 
 snippet finally
 	finally {
-	    ${0:TARGET}
+	    ${0:statements}
 	}
 
 snippet th
@@ -193,12 +199,12 @@ snippet sy
 snippet testclass
 alias   tc
 	public class ${1} extends ${2:TestCase} {
-	    ${0:TARGET}
+	    ${0:statements}
 	}
 
 snippet test
 	public void test${1:Name}() throws Exception {
-	    ${0:TARGET}
+	    ${0:statements}
 	}
 
 snippet import
@@ -230,7 +236,7 @@ snippet main
 #javadoc
 snippet comment
 	/**
-	 * ${0:TARGET}
+	 * ${0:statements}
 	 */
 
 snippet author
