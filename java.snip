@@ -30,25 +30,25 @@ alias ext
 	extends
 
 snippet class
-	class ${1:class_name} ${2:extends} ${3:class_to_be_extended}
+	public class ${1:class_name} ${2:extends} ${3:class_to_be_extended}
     {
 	    ${0:statements}
 	}
 
 snippet class.abstract
-	abstract class ${1:class_name} ${2:implements} ${3:interface}
+	public abstract class ${1:class_name} ${2:implements} ${3:interface}
     {
 	    ${0:statements}
 	}
 	
 snippet interface
-	interface ${1} ${2:extends} ${3:parent}
+	public interface ${1} ${2:extends} ${3:parent}
     {
 	    ${0:statements}
 	}
 	
 snippet method
-	${1:void} ${2:method}(${3}) ${4:throws}
+	${1:public} ${2:void} ${3:method_name}(${4:args})
     {
 	    ${0:statements}
 	}
