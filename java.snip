@@ -16,23 +16,11 @@ snippet static
 snippet final
     final ${1}
 
-snippet public.final
-	public final ${1:type} ${2:var} = ${3};
-
-snippet static.public.final
-	static public final ${1:type} ${2:var} = ${3};
-
-snippet private.final
-	private final ${1:type} ${2:var} = ${3};
-
-snippet static.private.final
-	static private final ${1:type} ${2:var} = ${3};
-
 snippet char
     char ${1} = '${2:value}';
 
 snippet str
-snippet String
+snippet string
 	String ${1} = "${2:value}";
 
 snippet byte
@@ -85,25 +73,25 @@ snippet else
     {
 	    ${1:statements}
 	}
-
+	
 snippet for
 	for (${1}; ${2}; ${3})
     {
 	    ${4:statements}
 	}
-
+	
 snippet foreach
 	for (${1} : ${2})
     {
 	    ${3:statements}
 	}
-
+	
 snippet switch
 	switch (${1})
     {
         ${2:statements}
 	}
-
+	
 snippet case
 	case ${1}:
 	    ${2:statements}
@@ -120,13 +108,13 @@ snippet while
 	{
 	    ${2:statements}
 	}
-
+	
 snippet do-while
 	do
 	{
 	    ${2:statements}
 	} while (${1});
-
+	
 snippet br
 	break;
 
@@ -135,18 +123,19 @@ snippet class
     {
 	    ${0:statements}
 	}
-
+	
 snippet interface
-	interface ${1} ${2:extends} ${3:Parent}
+	interface ${1} ${2:extends} ${3:parent}
     {
 	    ${0:statements}
 	}
-
+	
 snippet method
 	${1:void} ${2:method}(${3}) ${4:throws}
     {
 	    ${0:statements}
 	}
+    
 
 snippet enum
 abbr enum {}
