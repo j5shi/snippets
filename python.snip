@@ -1,182 +1,152 @@
-snippet     typeany
+snippet type
+	# type: 
+    #
+snippet type.any
     # type: Any
 
-snippet     typefloat
+snippet type.float
     # type: float
 
-snippet     typeint
+snippet type.int
     # type: int
 
-snippet     typebytes
+snippet type.bytes
     # type: bytes
 
-snippet     typestr
+snippet type.str
     # type: str
 
-snippet     typebool
+snippet type.bool
     # type: bool
 
-snippet     typetuple
+snippet type.tuple
     # type: Tuple[${1:type}]
 
-snippet     typeset
+snippet type.set
     # type: Set[${1:type}]
 
-snippet     typedict
+snippet type.dict
     # type: Dict[${1:type}]
 
-snippet     typelist
+snippet type.list
     # type: List[${1:type}]
 
-snippet     typeoptional
+snippet type.optional
     # type: Optional[${1:type}]
 
-snippet     typeunion
+snippet type.union
     # type: Union[${1:type}]
 
-snippet     typeiterable
+snippet type.iterable
     # type: Iterable[${1:type}]
 
-snippet     typemapping
+snippet type.mapping
     # type: Mapping[${1:key}, ${2:value}]
 
-snippet     typesequence
+snippet type.sequence
     # type: Sequence[${1:type}]
 
-snippet     typecallble
+snippet type.callble
     # type: Callable[[${1:arg1}, ${2:arg2}], ${3:return}]
 
-snippet     typefunc
+snippet type.func
     # type: (${1:arg1}) -> ${2:return}
 
-snippet     coding
-abbr        # -*- coding ...
-alias       encoding
+snippet coding
+alias encoding
 	# -*- coding: utf-8 -*-
 
-snippet     docstring
-alias       docs
-abbr        """
+snippet docstring
+alias docs
+abbr """
 	"""
 	${0}
 	"""
 
-snippet     class
-abbr        class Class(...): ...
-options     head
+snippet class
 	class ${1:name}(${2:object}):
 
 		def __init__(self${3:#:, argument}):
 			${0:TARGET}
-
-snippet     def
-abbr        def function(...): ...
-options     head
+	
+snippet def
+alias method
 	def ${1:#:name}(${2}):
 		${0:TARGET}
-
-snippet     defm
-abbr        def method(self, ...): ...
-options     head
+	
+snippet def.self
+alias method
 	def ${1:#:name}(self${2:#:, argument}):
 		${0:TARGET}
-
-snippet     definit
-alias       init
-abbr        def __init__(self, ...): ...
-options     head
+	
+snippet def.init
+alias init
 	def __init__(self${1:#:, argument}):
 		${0:TARGET}
-
-snippet     for
-abbr        for ... in ...: ...
-options     head
+	
+snippet for
 	for ${1:#:value} in ${2:#:iterable}:
 		${0:TARGET}
-
-snippet     if
-abbr        if ...: ...
-options     head
+	
+snippet if
 	if ${1:#:condition}:
 		${0:TARGET}
-
-snippet     ifmain
-abbr        if __name__ == '__main__': ...
-alias       main
-options     head
+	
+snippet if.main
+alias main
 	if __name__ == '__main__':
 		${0:TARGET}
-
-snippet     elif
-abbr        elif ...: ...
-options     head
+	
+snippet elif
 	elif ${1:#:condition}:
 		${0}
-
-snippet     else
-abbr        else: ...
-options     head
+	
+snippet else
 	else:
 		${0}
-
-snippet     withopen
-abbr        with open()
-options     head
+	
+snippet with.open
 	with open(${1:#:filename}, '${2:#:mode}') as ${3:f}:
 		${0:TARGET}
-
-snippet     tryexcept
-abbr        try: ... except ...: ...
-options     head
+	
+snippet try.except
 	try:
 		${1:TARGET}
 	except ${2:#:ExceptionClass}:
 		${3}
-
-snippet     tryfinally
-abbr        try: ... finally: ...
-options     head
+	
+snippet try.finally
 	try:
 		${1:TARGET}
 	finally:
 		${2}
-
-snippet     while
-abbr        while ...: ...
-options     head
+	
+snippet while
 	while ${1:#:condition}:
 		${0:TARGET}
-
-snippet     with
-abbr        with {func}({file}) as :
-options     head
+	
+snippet with
 	with ${1:open}(${2:#:filename, mode}) as ${3:f}:
 		${0:TARGET}
-
-snippet     filter
-abbr        [x for x in {list} if {condition}]
+	
+snippet filter
 	[$1 for ${1:x} in ${2:#:list} if ${3:#:condition}]
 
-snippet     print
-options     word
+snippet print
+alias pr
 	print(${0:TARGET})
 
-snippet     getattr
-abbr        getattr(..., ...)
+snippet get.attr
 	getattr({1:#:obj}, {2:#:attr})
 
-snippet     setattr
-abbr        setattr(..., ...)
+snippet set.attr
 	setattr({1:#:obj}, {2:#:attr})
 
-snippet     pdb
-abbr        import pdb..
+snippet pdb
 	import pdb; pdb.set_trace()
 
-snippet     assert_instance
+snippet assert.instance
 	assert isinstance(${1:#:object}, ${2:#:class})
 
-snippet     type
-	# type: 
 
 
