@@ -11,12 +11,15 @@ alias abs
 	abstract
 
 snippet private
+alias pri
     private
 
 snippet public
+alias pub
     public
 
 snippet protected
+alias pro
     protected
 
 snippet static
@@ -152,7 +155,7 @@ snippet while
 	    ${2:statements}
 	}
 	
-snippet do-while
+snippet dowhile
 	do
 	{
 	    ${2:statements}
@@ -161,7 +164,11 @@ snippet do-while
 snippet br
 	break;
 
-    
+snippet getattr
+	public ${1:return_type} get${2:attribute}() { return this.$2${0}; }
+
+snippet setattr
+	public ${1:return_type} set${2:attribute}(${3:type} ${4:value}) { this.$2 = $4${0}; }
 
 snippet enum
 abbr enum {}
@@ -170,14 +177,8 @@ abbr enum {}
 	    ${0:statements}
 	}
 
-
 snippet assert
 	assert ${1:test} : ${2:Failure message};${3}
-
-
-
-
-
 
 snippet try
 	try {
