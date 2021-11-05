@@ -4,89 +4,73 @@ snippet bash
 snippet env
 	#!/usr/bin/env ${1}
 
-snippet assign
-	${1:name}="${2:something}"
+snippet var
+	"$${1:name}"
 
 snippet math
-abbr    var
 	"(( ${1:cmd} ))"
 
-snippet cmdreplacement
-abbr    var
+snippet cmd
 	"$(${1:cmd})"
 
 snippet subshell
-abbr    var
 	"(${1:cmd})"
 
-snippet variable
-abbr    var
-	"$${1:name}"
+snippet =
+	[[ "$${1:name}" = "${2:something}" ]]
 
-snippet testequal
-	[[ "$${1:name}" = "${2:something}" ]] ${3:then}
+snippet =~
+	[[ "$${1:name}" =~ ${2:something} ]]
 
-snippet testnotequal
-	[[ "$${1:name}" != "${2:something}" ]] ${3:then}
+snippet !=
+	[[ "$${1:name}" != "${2:something}" ]]
 
-snippet testzerolength
+snippet -z
 	[[ -z "$${1:name}" ]] ${2:then}
 
-snippet testnotzerolength
+snippet -n
 	[[ -n "$${1:name}" ]] ${2:then}
 
-snippet testequalmath
+snippet -eq
 	[[ "$${1:name}" -eq ${2:something} ]] ${3:then}
 
-snippet testnotequalmath
+snippet -ne
 	[[ "$${1:name}" -ne ${2:something} ]] ${3:then}
 
-snippet testgreatthan
+snippet -gt
 	[[ "$${1:name}" -gt ${2:something} ]] ${3:then}
 
-snippet testgreatorequal
+snippet -ge
 	[[ "$${1:name}" -ge ${2:something} ]] ${3:then}
 
-snippet testlessthan
+snippet -lt
 	[[ "$${1:name}" -lt ${2:something} ]] ${3:then}
 
-snippet testlessorequal
+snippet -le
 	[[ "$${1:name}" -le ${2:something} ]] ${3:then}
 
-snippet testisdir
+snippet -d
 	[[ -d "$${1:file}" ]] ${2:then}
 
-snippet testisfile
+snippet -f
 	[[ -f "$${1:file}" ]] ${2:then}
 
-snippet testexist
+snippet -e
 	[[ -e "$${1:file}" ]] ${2:then}
 
-snippet testisfileandreadable
+snippet -r
 	[[ -r "$${1:file}" ]] ${2:then}
 
-snippet testisfileandwritable
+snippet -w
 	[[ -w "$${1:file}" ]] ${2:then}
 
-snippet testisfileandexecutable
+snippet -x
 	[[ -x "$${1:file}" ]] ${2:then}
 
-snippet ifelsefi
-	if [[ "$${0:var}" ${1:oprand} "${2:value}" ]]; then ${3:then}; else ${4:else}; fi
-
 snippet if
-	if [[ ${1:#:condition} ]]; then
+	if ${1:#:condition}
+	then
 		${0:TARGET}
-	fi
-
-snippet ifnot
-	if ! [[ ${1:#:condition} ]]; then
-		${0:TARGET}
-	fi
-
-snippet ifregex
-	if [[ $${1:string} =~ ${2:^regexp.*} ]]; then
-		${0}
 	fi
 
 snippet else
@@ -94,21 +78,25 @@ snippet else
 		${0:TARGET}
 
 snippet elif
-	elif [[ ${1:#:condition} ]]; then
+	elif ${1:#:condition}
+	then
 		${0:TARGET}
 
 snippet for
-	for ${1:i} in ${2:#:words}; do
+	for ${1:#:loop}
+	do
 		${0:TARGET}
 	done
 
 snippet while
-	while ${1:#:condition}; do
+	while ${1:#:condition}
+	do
 		${0:TARGET}
 	done
 
 snippet until
-	until ${1:#:condition}; do
+	until ${1:#:condition}
+	dp
 		${0:TARGET}
 	done
 
@@ -125,7 +113,7 @@ snippet tmp
 
 snippet function
 alias func
-	${1:#:name}()
+	function ${1:#:name}()
 	{
 		${0:TARGET}
 	}
@@ -139,6 +127,15 @@ options head
 		*)
 			${3:echo "$$1 Didn't match anything"}
 	esac
+
+snippet null
+	&>/dev/null
+
+snippet 1null
+	1>/dev/null
+
+snippet 2null
+	2>/dev/null
 
 snippet warn
 options head
