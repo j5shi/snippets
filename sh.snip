@@ -26,46 +26,46 @@ snippet !=
 	[[ "$${1:name}" != "${2:something}" ]]
 
 snippet -z
-	[[ -z "$${1:name}" ]] ${2:then}
+	[[ -z "$${1:name}" ]]
 
 snippet -n
-	[[ -n "$${1:name}" ]] ${2:then}
+	[[ -n "$${1:name}" ]]
 
 snippet -eq
-	[[ "$${1:name}" -eq ${2:something} ]] ${3:then}
+	[[ "$${1:name}" -eq ${2:something} ]]
 
 snippet -ne
-	[[ "$${1:name}" -ne ${2:something} ]] ${3:then}
+	[[ "$${1:name}" -ne ${2:something} ]]
 
 snippet -gt
-	[[ "$${1:name}" -gt ${2:something} ]] ${3:then}
+	[[ "$${1:name}" -gt ${2:something} ]]
 
 snippet -ge
-	[[ "$${1:name}" -ge ${2:something} ]] ${3:then}
+	[[ "$${1:name}" -ge ${2:something} ]]
 
 snippet -lt
-	[[ "$${1:name}" -lt ${2:something} ]] ${3:then}
+	[[ "$${1:name}" -lt ${2:something} ]]
 
 snippet -le
-	[[ "$${1:name}" -le ${2:something} ]] ${3:then}
+	[[ "$${1:name}" -le ${2:something} ]]
 
 snippet -d
-	[[ -d "$${1:file}" ]] ${2:then}
+	[[ -d "$${1:file}" ]]
 
 snippet -f
-	[[ -f "$${1:file}" ]] ${2:then}
+	[[ -f "$${1:file}" ]]
 
 snippet -e
-	[[ -e "$${1:file}" ]] ${2:then}
+	[[ -e "$${1:file}" ]]
 
 snippet -r
-	[[ -r "$${1:file}" ]] ${2:then}
+	[[ -r "$${1:file}" ]]
 
 snippet -w
-	[[ -w "$${1:file}" ]] ${2:then}
+	[[ -w "$${1:file}" ]]
 
 snippet -x
-	[[ -x "$${1:file}" ]] ${2:then}
+	[[ -x "$${1:file}" ]]
 
 snippet if
 	if ${1:#:condition}
