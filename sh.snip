@@ -67,6 +67,27 @@ snippet -w
 snippet -x
 	[[ -x "$${1:file}" ]]
 
+snippet -s
+	[[ -s "$${1:file}" ]]
+
+snippet -c
+	[[ -c "$${1:file}" ]]
+
+snippet -b
+	[[ -b "$${1:file}" ]]
+
+snippet -L
+	[[ -L "$${1:file}" ]]
+
+snippet -N
+	[[ -N "$${1:file}" ]]
+
+snippet -O
+	[[ -O "$${1:file}" ]]
+
+snippet -G
+	[[ -G "$${1:file}" ]]
+
 snippet if
 	if ${1:#:condition}
 	then
