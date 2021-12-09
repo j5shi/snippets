@@ -1,0 +1,52 @@
+snippet comment
+	<!-- ${1} -->
+
+snippet comments
+	<!--
+		${1}
+	-->
+
+snippet pom
+	<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns="http://maven.apache.org/POM/4.0.0"
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+		<modelVersion>4.0.0</modelVersion>
+
+		<groupId>${1:com.company.project}</groupId>
+		<artifactId>${2:artifactId}</artifactId>
+		<version>${3:1.0}</version>
+		<packaging>${0:jar}</packaging>
+
+		<!-- doc -->
+
+		<!-- properties -->
+
+		<!-- parent -->
+
+	</project>
+
+snippet doc
+	<name>${1:name}</name>
+	<url>${2:url}</url>
+
+snippet parent
+	<parent>
+		<groupId>${1:com.company.project}</groupId>
+		<artifactId>${2:artifactId}</artifactId>
+		<version>${3:1.0}</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+snippet properties
+	<properties>
+		<${1:property}>${0:value}</$1>
+	</properties>
+
+snippet property
+	<${1:property}>${0:value}</$1>
+
+snippet packaging
+	<packaging>${0:jar}</packaging>
+
+
