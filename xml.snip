@@ -7,6 +7,7 @@ snippet comments
 	-->
 
 snippet pom
+	<?xml version="1.0" encoding="UTF-8"?>
 	<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xmlns="http://maven.apache.org/POM/4.0.0"
 		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -16,8 +17,7 @@ snippet pom
 		<groupId>${1:com.company.project}</groupId>
 		<artifactId>${2:artifactId}</artifactId>
 		<version>${3:1.0.0-SNAPSHOT}</version>
-		<packaging>${4:jar}</packaging>
-
+		<packaging>${4:jar}</packaging>${0}
 	</project>
 
 snippet modelVersion
@@ -351,6 +351,11 @@ snippet activeByDefault
 	<activeByDefault>${1:activeByDefault}</activeByDefault>
 
 snippet modules
+	<modules>
+		module${1}
+	</modules>
+
+snippet module
 	<modules>${1}</modules>
 
 snippet jdk
