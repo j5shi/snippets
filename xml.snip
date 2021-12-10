@@ -20,10 +20,16 @@ snippet pom
 
 	</project>
 
-snippet groupid
+snippet modelVersion
+alias modelversion
+	<modelVersion>${1:4.0.0}</modelVersion>
+
+snippet groupId
+alias groupid
 	<groupId>${1:com.company.project}</groupId>
 
-snippet artifactid
+snippet artifactId
+alias artifactid
 	<artifactId>${1:artifactId}</artifactId>
 
 snippet version
@@ -55,8 +61,13 @@ snippet properties
 		<${1:property}>${2:value}</$1>
 	</properties>
 
-snippet property
-	<${1:property}>${0:value}</$1>
+snippet prop
+	<${1:name}>${2:value}</$1>
+
+snippet prop_multiline
+	<${1:name}>
+		${2:value}
+	</$1>
 
 snippet packaging
 	<packaging>${1:jar}</packaging>
@@ -99,13 +110,13 @@ snippet dependency
 	<dependency>
 		<groupId>${1:com.company.project}</groupId>
 		<artifactId>${2}</artifactId>
-		<version>${3}></version>
-		<type>${4:jar}></type>
-		<classifier>${5}></classifier>
-		<scope>${6:test}></scope>
-		<systemPath>${7}></systemPath>
+		<version>${3}</version>
+		<type>${4:jar}</type>
+		<classifier>${5}</classifier>
+		<scope>${6:test}</scope>
+		<systemPath>${7}</systemPath>
 		exclusions${8}
-		<optional>${9:true}></optional>
+		<optional>${9:true}</optional>
 	</dependency>
 
 snippet exclusions
@@ -278,8 +289,22 @@ snippet plugin
 		dependencies${6}
 		<goals>${7}</goals/>
 		<inherited>${8}</inherited>
-		<configuration>${9}</configuration>
+		configuration${9}
 	</plugin>
+
+snippet configuration
+	<configuration>
+		<executable>${1}</executable>
+		arguments${2}
+	</configuration>
+
+snippet arguments
+	<arguments>
+		argument${1}
+	</arguments>
+
+snippet argument
+	<argument>${1}</argument>
 
 snippet executions
 	<executions>
