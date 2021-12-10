@@ -385,6 +385,9 @@ snippet repositories
 		repository${1}
 	</repositories>
 
+snippet localRepository
+	<localRepository>${1:path_to_local_repo}</localRepository>
+
 snippet repository
 	<repository>
 		releases${1}
@@ -424,14 +427,14 @@ snippet pluginRepository
 	
 snippet releases
 	<release>
-		<enabled>${1}</enabled>
+		<enabled>${1:true}</enabled>
 		<updatePolicy>${2}</updatePolicy>
 		<checksumPolicy>${3}</checksumPolicy>
 	</release>
 
 snippet snapshots
 	<snapshots>
-		<enabled>${1}</enabled>
+		<enabled>${1:true}</enabled>
 		<updatePolicy>${2}</updatePolicy>
 		<checksumPolicy>${3}</checksumPolicy>
 	</snapshots>
@@ -441,3 +444,15 @@ snippet reporting
 		${1}
 	</reporting>
 
+snippet mirorrs
+	<mirrors>
+		mirror${1}
+	</mirrors>
+
+snippet mirorr
+	<mirror>
+		<id>${1:aliyunmaven}</id>
+		<mirrorOf>${2:*}</mirrorOf>
+		<name>${3}</name>
+		<url>${4:https://maven.aliyun.com/repository/public}</url>
+	</mirror>
