@@ -19,6 +19,45 @@ snippet cmd
 snippet subshell
 	"(${1:cmd})"
 
+snippet list_new
+	declare -a ${1:list}=(${2:element})
+
+snippet list_append
+	${1:list}+=(${2:new_element})
+
+snippet list_len
+	"${#${1:list}[@]}"
+
+snippet list_element_i_len
+	"${#${1:list}[${2:index}]}"
+
+snippet list_to_string
+	"${${1:list}[*]}"
+
+snippet list_of_list_indices
+	"${!${1:list}[@]}"
+
+snippet list_i
+	"${${1:list}[${2:index}]}"
+
+snippet list_range
+	"${${1:list}[@]:${2:start}:${3:len}}"
+
+snippet list_all
+	"${${1:list}[@]}"
+
+snippet map_new
+	declare -A ${1:map}=([${2:key}]=${3:value})
+
+snippet map_kv_pair
+	[${1:key}]=${2:value}
+
+snippet map_append
+	${1:map}+=([${2:key}]=${3:value})
+
+snippet map_element_assignment
+	${1:map}[${2:key}]=${3:value}
+
 snippet =
 	[[ "$${1:name}" = "${2:something}" ]]
 
@@ -152,21 +191,19 @@ options head
 			${3:echo "$$1 Didn't match anything"}
 	esac
 
-snippet null
+snippet devnull
 	&>/dev/null
 
-snippet 1null
+snippet 1devnull
 	1>/dev/null
 
-snippet 2null
+snippet 2devnull
 	2>/dev/null
 
-snippet warn
-options head
+snippet echo_error
 	echo "${0:TARGET}" 1>&2
 
-snippet abort
-options head
+snippet echo_error_and_abort
 	echo "${0:TARGET}" 1>&2
 	exit 1
 
