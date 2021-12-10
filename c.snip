@@ -1,21 +1,19 @@
 snippet file_descriptor
-    /**
-    *******************************************************************************
-    * @file     $HeadURL: $
-    * @version  $LastChangedRevision: $
-    * @date     $LastChangedDate: $
-    * @author   $Author: $
-    *
-    * Copyright 2016 Nokia Solutions and Networks. All rights reserved.
-    *******************************************************************************/
+	/**
+	*******************************************************************************
+	* @file     $HeadURL: $
+	* @version  $LastChangedRevision: $
+	* @date     $LastChangedDate: $
+	* @author   $Author: $
+	*
+	* Copyright 2016 Nokia Solutions and Networks. All rights reserved.
+	*******************************************************************************/
 
 snippet header_guard
-    #ifndef ${1:`toupper(Filename('$1_H', 'UNTITLED_H'))`}
-    #define $1
-
-    ${2}
-
-    #endif /* $1 */
+	#ifndef ${1:`toupper(Filename('$1_H', 'UNTITLED_H'))`}
+	#define $1
+		${2}
+	#endif /* $1 */
 
 snippet include<>
 	#include <${1:stdio}.h>${0}

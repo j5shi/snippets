@@ -15,38 +15,404 @@ snippet pom
 
 		<groupId>${1:com.company.project}</groupId>
 		<artifactId>${2:artifactId}</artifactId>
-		<version>${3:1.0}</version>
-		<packaging>${0:jar}</packaging>
-
-		<!-- doc -->
-
-		<!-- properties -->
-
-		<!-- parent -->
+		<version>${3:1.0.0-SNAPSHOT}</version>
+		<packaging>${4:jar}</packaging>
 
 	</project>
+
+snippet groupid
+	<groupId>${1:com.company.project}</groupId>
+
+snippet artifactid
+	<artifactId>${1:artifactId}</artifactId>
+
+snippet version
+	<version>${1:version}</version>
+
+snippet relativepath
+	<relativePath>${1:relativePath}</relativePath>
 
 snippet doc
 	<name>${1:name}</name>
 	<url>${2:url}</url>
+	<description>${3:description}</description>
 
 snippet parent
 	<parent>
 		<groupId>${1:com.company.project}</groupId>
 		<artifactId>${2:artifactId}</artifactId>
-		<version>${3:1.0}</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<version>${3:1.0.0-SNAPSHOT}</version>
+		<relativePath>${4:relativePath}</relativePath>
 	</parent>
+
+snippet prerequisites
+	<prerequisites>
+		<maven>${1:version}</maven>
+	</prerequisites>
 
 snippet properties
 	<properties>
-		<${1:property}>${0:value}</$1>
+		<${1:property}>${2:value}</$1>
 	</properties>
 
 snippet property
 	<${1:property}>${0:value}</$1>
 
 snippet packaging
-	<packaging>${0:jar}</packaging>
+	<packaging>${1:jar}</packaging>
 
+snippet distributionManagement
+	<distributionManagement>
+		repository${1}
+		snapshotRepository${2}
+		site${3}
+		<downloadUrl>${4}</downloadUrl>
+		relocation${5}
+	</distributionManagement>
+
+snippet site
+	<site>
+		<id>${1}</id>
+		<name>${2}</name>
+		<url>${3}</url>
+	</site>
+
+snippet relocation
+	<relocation>
+		<groupId>${1}</groupId>
+		<artifactId>${2}</artifactId>
+		<version>${3}</version>
+		<message>${4}</message>
+	</relocation>
+
+snippet dependencyManagement
+	<dependencyManagement>
+		dependencies${0}
+	</dependencyManagement>
+
+snippet dependencies
+	<dependencies>
+		dependency${0}
+	</dependencies>
+
+snippet dependency
+	<dependency>
+		<groupId>${1:com.company.project}</groupId>
+		<artifactId>${2}</artifactId>
+		<version>${3}></version>
+		<type>${4:jar}></type>
+		<classifier>${5}></classifier>
+		<scope>${6:test}></scope>
+		<systemPath>${7}></systemPath>
+		exclusions${8}
+		<optional>${9:true}></optional>
+	</dependency>
+
+snippet exclusions
+	<exclusions>
+		exclusion${1}
+	</exclusions>
+
+snippet exclusion
+	<exclusion>
+		<artifactId>${1}</artifactId>
+		<groupId>${2}</groupId>
+	</exclusion>
+
+snippet mailinglists
+	<mailingLists>
+		<mailingList>
+			<name>${1:Maven}</name>
+			<post>${2:maven@126.com}</post>
+			<subscribe>${3:maven@126.com}</subscribe>
+			<unsubscribe>${4:maven@126.com}</unsubscribe>
+			<archive>${0:http://www.apache.com/maven/demo/dev/}</archive>
+		</mailingList>
+	</mailingLists>
+
+snippet developers
+	<developers>
+		<developer>
+			<id>${1:maven}</id>
+			<name>${2:maven}</name>
+			<email>${3:maven@126.com}</email>
+			<url>${4:maven@126.com}</url>
+			<roles>
+				<role>${5:Project Manager}</role>
+				<role>${6:Architect}</role>
+			</roles>
+			<organization>${7:demo}</organization>
+			<organizationUrl>${8:http://hi.apache.com/maven}</organizationUrl>
+			<properties>
+				<dept>${9}</dept>
+			</properties>
+			<timezone>${10:-5}</timezone>
+		</developer>
+	</developers>
+
+snippet developer
+	<developer>
+		<id>${1:maven}</id>
+		<name>${2:maven}</name>
+		<email>${3:maven@126.com}</email>
+		<url>${4:maven@126.com}</url>
+		<roles>
+			<role>${5:Project Manager}</role>
+			<role>${6:Architect}</role>
+		</roles>
+		<organization>${7:demo}</organization>
+		<organizationUrl>${8:http://hi.apache.com/maven}</organizationUrl>
+		<properties>
+			<dept>${9}</dept>
+		</properties>
+		<timezone>${10:-5}</timezone>
+	</developer>
+
+snippet contributors
+	<contributors>
+		<contributor>
+			<id>${1:maven}</id>
+			<name>${2:maven}</name>
+			<email>${3:maven@126.com}</email>
+			<url>${4:maven@126.com}</url>
+			<roles>
+				<role>${5:Project Manager}</role>
+				<role>${6:Architect}</role>
+			</roles>
+			<organization>${7:demo}</organization>
+			<organizationUrl>${8:http://hi.apache.com/maven}</organizationUrl>
+			<properties>
+				<dept>${9}</dept>
+			</properties>
+			<timezone>${10:-5}</timezone>
+		</contributor>
+	</contributors>
+
+snippet contributor
+	<contributor>
+		<id>${1:maven}</id>
+		<name>${2:maven}</name>
+		<email>${3:maven@126.com}</email>
+		<url>${4:maven@126.com}</url>
+		<roles>
+			<role>${5:Project Manager}</role>
+			<role>${6:Architect}</role>
+		</roles>
+		<organization>${7:demo}</organization>
+		<organizationUrl>${8:http://hi.apache.com/maven}</organizationUrl>
+		<properties>
+			<dept>${9}</dept>
+		</properties>
+		<timezone>${10:-5}</timezone>
+	</contributor>
+
+snippet licenses
+	<licenses>
+		license${0}
+	</licenses>
+
+snippet license
+	<license>
+		<name>${1:Apache 2}</name>
+		<url>${2:http://www.apache.com/maven/LICENSE-2.0.txt}</url>
+		<distribution>${3:repo}</distribution>
+		<comments>${4:A business-friendly OSS license}</comments>
+	</license>
+
+snippet build
+	<build>
+		<defaultGoal>${1}</defaultGoal>
+		resources${2}
+		testResources${3}
+		<directory>${4}</directory>
+		<finalName>${5}</finalName>
+		<filters>${6}</filters>
+		pluginManagement${7}
+	</build>
+
+snippet resources
+	<resources>
+		resource${1}
+	</resources>
+
+snippet resource
+	<resource>
+		<targetPath ${1}/>
+		<filtering ${2}/>
+		<directory ${3}/>
+		<includes ${4}/>
+		<excludes ${5}/>
+	</resource>
+
+snippet testResources
+	<testResources>
+		testResource${1}
+	</testResources>
+
+snippet testResource
+	<testResource>
+		<targetPath ${1}/>
+		<filtering ${2}/>
+		<directory ${3}/>
+		<includes ${4}/>
+		<excludes ${5}/>
+	</testResource>
+
+snippet pluginManagement
+	<pluginManagement>
+		plugins${0}
+	</pluginManagement>
+
+snippet plugins
+	<plugins>
+		plugin${0}
+	</plugins>
+
+snippet plugin
+	<plugin>
+		<groupId>${1:group}</groupId>
+		<artifactId>${2:plugin}</artifactId>
+		<version>${3:version}</version>
+		<extensions>${4:extensions}</extensions>
+		executions${5}
+		dependencies${6}
+		<goals>${7}</goals/>
+		<inherited>${8}</inherited>
+		<configuration>${9}</configuration>
+	</plugin>
+
+snippet executions
+	<executions>
+		execution${0}
+	</executions>
+
+snippet execution
+	<execution>
+		<id>${1}</id>
+		<phase>${2}</phase/>
+		<goals>${3}</goals/>
+		<inherited>${4}</inherited>
+		<configuration>${5}</configuration>
+	</execution>
+
+snippet profiles
+	<profiles>
+		profile${0}
+	</profiles>
+
+snippet profile
+	<profile>
+		<id>${1:profile_id}</id>
+		activation${2}
+		build${3}
+		modules${4}
+		repositories${5}
+		pluginRepositories${6}
+		reporting${7}
+		dependencies${8}
+		dependencyManagement${9}
+		distributionManagement${10}
+		properties${11}
+	</profile>
+
+snippet activation
+	activeByDefault${1}
+	jdk${2}
+	os${3}
+	property${4}
+	file${5}
+
+snippet activeByDefault
+	<activeByDefault>${1:activeByDefault}</activeByDefault>
+
+snippet modules
+	<modules>${1}</modules>
+
+snippet jdk
+	<jdk>${1:jdk}</jdk>
+
+snippet os
+	<os>
+		<name>${1:name}</name>
+		<family>${2:family}</family>
+		<arch>${3:arch}</arch>
+		<version>${4:version}</version>
+	<os>
+
+snippet property
+	<property>
+		<name>${1:property}</name>
+		<value>${2:value}</value>
+	</property>
+
+snippet file
+	<file>
+		<exists>
+			${1:/usr/local/hudson/hudson-home/jobs/maven-guide-zh-to-production/workspace/}
+		</exists>
+		<missing>
+			${2:/usr/local/hudson/hudson-home/jobs/maven-guide-zh-to-production/workspace/}
+		</missing>
+	</file>
+
+snippet repositories
+	<repositories>
+		repository${1}
+	</repositories>
+
+snippet repository
+	<repository>
+		releases${1}
+		snapshots${2}
+		<id>${3}</id>
+		<name>${4}</name>
+		<url>${5}</url>
+		<layout>${6}</layout>
+		<uniqueVersion>${7}</uniqueVersion>
+	</repository>
+
+snippet snapshotRepository
+	<snapshotRepository>
+		releases${1}
+		snapshots${2}
+		<id>${3}</id>
+		<name>${4}</name>
+		<url>${5}</url>
+		<layout>${6}</layout>
+		<uniqueVersion>${7}</uniqueVersion>
+	</snapshotRepository>
+
+snippet pluginRepositories
+	<pluginRepositories>
+		pluginRepository${1}
+	</pluginRepositories>
+
+snippet pluginRepository
+	<pluginRepository>
+		releases${1}
+		snapshots${2}
+		<id>${3}</id>
+		<name>${4}</name>
+		<url>${5}</url>
+		<layout>${6}</layout>
+	</pluginRepository>
+	
+snippet releases
+	<release>
+		<enabled>${1}</enabled>
+		<updatePolicy>${2}</updatePolicy>
+		<checksumPolicy>${3}</checksumPolicy>
+	</release>
+
+snippet snapshots
+	<snapshots>
+		<enabled>${1}</enabled>
+		<updatePolicy>${2}</updatePolicy>
+		<checksumPolicy>${3}</checksumPolicy>
+	</snapshots>
+
+snippet reporting
+	<reporting>
+		${1}
+	</reporting>
 
