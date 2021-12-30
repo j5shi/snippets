@@ -1,38 +1,33 @@
-snippet package
-alias   pac
+snippet pa
 	package ${1};
 
-snippet import
-alias   imt
+snippet im
 	import ${1};
 
-snippet abstract
-alias abs
+snippet ab
 	abstract
 
-snippet private
+snippet pr
 alias pri
 	private
 
-snippet public
+snippet pu
 alias pub
 	public
 
-snippet protected
-alias pro
+snippet pt
 	protected
 
-snippet static
+snippet st
 	static
 
-snippet final
+snippet fi
 	final ${1}
 
-snippet char
+snippet ch
 	char ${1} = '${2:value}';
 
-snippet extends
-alias ext
+snippet ex
 	extends
 
 snippet class
@@ -59,14 +54,14 @@ snippet interface
 	    ${0:statements}
 	}
 	
-snippet method.abstract
-	abstract ${2:void} ${3:method_name}(${4:args});
-
 snippet method
-	${1:public} ${2:void} ${3:method_name}(${4:args})
+	${1:attribute} ${2:return_type} ${3:method_name}(${4:args})
 	{
 	    ${0:statements}
 	}
+
+snippet method.abstract
+	public abstract ${2:return_type} ${3:method_name}(${4:args});
 
 snippet string
 alias str
@@ -132,13 +127,13 @@ snippet for
 	    ${4:statements}
 	}
 	
-snippet foreach
+snippet fore
 	for (${1} : ${2})
 	{
 	    ${3:statements}
 	}
 	
-snippet switch
+snippet sw
 	switch (${1})
 	{
 	    ${2:statements}
@@ -149,19 +144,18 @@ snippet case
 	    ${2:statements}
 		break;
 
-snippet default
-alias   de
+snippet de
 	default:
 	    ${0}
 		break;
 
-snippet while
+snippet wh
 	while (${1})
 	{
 	    ${2:statements}
 	}
 	
-snippet dowhile
+snippet dowh
 	do
 	{
 	    ${2:statements}
@@ -230,20 +224,12 @@ snippet test
 	    ${0:statements}
 	}
 
-snippet j.u
-	java.util.
+snippet j
+	java
 
-snippet j.i
-	java.io.
-
-snippet j.b
-	java.beans.
-
-snippet j.n
-	java.net
-
-snippet j.m
-	java.math.
+snippet override
+alias ov
+	@Override
 
 snippet main
 	public static void main(String[] args) {
