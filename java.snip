@@ -170,6 +170,9 @@ snippet getattr
 snippet setattr
 	public ${1:return_type} set${2:attribute}(${3:type} ${4:value}) { this.$2 = $4${0}; }
 
+snippet isattr
+	public ${1:return_type} is${2:attribute}(${3:type} ${4:value}) { return ${0}; }
+
 snippet enum
 abbr enum {}
 	enum ${1:name}
